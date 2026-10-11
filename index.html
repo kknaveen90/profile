@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-        content="Naveen — Senior Java Developer and Technical Leader specialising in Spring Boot, microservices, AWS, and banking systems.">
-  <meta name="theme-color" content="#102a43">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Naveen — Senior Java Developer and Technical Leader specialising in Spring Boot, microservices, AWS, and banking systems." />
+  <meta name="theme-color" content="#102a43" />
   <title>Naveen | Senior Java Developer</title>
-
   <style>
     :root {
       --background: #f4f7fb;
@@ -15,14 +13,14 @@
       --text: #172b42;
       --muted: #52657b;
       --primary: #164e9b;
+      --primary-soft: #dfeeff;
       --dark: #102a43;
       --border: #dde5ef;
-      --radius: 18px;
+      --radius: 20px;
+      --shadow: 0 18px 42px rgba(16, 42, 67, 0.08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
@@ -35,17 +33,18 @@
       font-size: 16px;
       line-height: 1.7;
       color: var(--text);
-      background: var(--background);
+      background:
+        radial-gradient(circle at top, rgba(22, 78, 155, 0.08), transparent 30%),
+        var(--background);
     }
 
     a {
       color: var(--primary);
-      text-underline-offset: 4px;
+      text-decoration: none;
+      transition: color 0.2s ease;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
+    a:hover { text-decoration: underline; }
 
     a:focus-visible {
       outline: 3px solid #2684ff;
@@ -53,18 +52,13 @@
       border-radius: 4px;
     }
 
-    h1, h2, h3, p {
-      margin-top: 0;
-    }
-
-    h1, h2, h3 {
-      line-height: 1.2;
-    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { line-height: 1.2; }
 
     h2 {
       margin-bottom: 12px;
-      font-size: clamp(1.6rem, 3vw, 2rem);
-      letter-spacing: -0.04em;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      letter-spacing: -0.05em;
     }
 
     h3 {
@@ -72,9 +66,7 @@
       font-size: 1.15rem;
     }
 
-    p {
-      margin-bottom: 16px;
-    }
+    p { margin-bottom: 16px; }
 
     .container {
       width: min(1120px, calc(100% - 40px));
@@ -89,16 +81,16 @@
       color: white;
       background: var(--dark);
       z-index: 20;
+      border-radius: 8px;
     }
 
-    .skip-link:focus {
-      top: 12px;
-    }
+    .skip-link:focus { top: 12px; }
 
     .site-header {
       position: sticky;
       top: 0;
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       z-index: 10;
     }
@@ -120,14 +112,12 @@
       letter-spacing: -0.04em;
     }
 
-    .brand span {
-      color: var(--primary);
-    }
+    .brand span { color: var(--primary); }
 
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px 22px;
+      gap: 8px 20px;
     }
 
     .nav-links a {
@@ -138,21 +128,19 @@
       padding-block: 8px;
     }
 
-    .nav-links a:hover {
-      color: var(--primary);
-    }
+    .nav-links a:hover { color: var(--primary); }
 
     .hero {
-      padding: 80px 0 64px;
+      padding: 88px 0 64px;
       color: white;
       background:
-        radial-gradient(circle at 90% 10%, #235d86 0, transparent 45%),
-        linear-gradient(120deg, #102a43, #133951);
+        radial-gradient(circle at 90% 12%, rgba(104, 178, 255, 0.25), transparent 32%),
+        linear-gradient(120deg, #102a43, #133951 50%, #184d74);
     }
 
     .hero-layout {
       display: grid;
-      grid-template-columns: 1.7fr 1fr;
+      grid-template-columns: 1.6fr 1fr;
       align-items: center;
       gap: 52px;
     }
@@ -167,68 +155,66 @@
 
     .hero h1 {
       margin-bottom: 20px;
-      font-size: clamp(2.8rem, 6vw, 4.7rem);
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
       letter-spacing: -0.06em;
     }
 
-    .hero h1 span {
-      color: #9dceff;
-    }
+    .hero h1 span { color: #9dceff; }
 
     .hero-description {
       max-width: 620px;
       color: #d5e3ef;
-      font-size: 1.1rem;
+      font-size: 1.08rem;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 30px;
     }
 
     .button {
       display: inline-flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       min-height: 48px;
       padding: 11px 22px;
-      border: 1px solid transparent;
-      border-radius: 9px;
+      border-radius: 10px;
       font-weight: 700;
       text-decoration: none;
-      transition: background 0.2s ease;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
     .button:hover {
       text-decoration: none;
+      transform: translateY(-1px);
     }
 
     .button-primary {
       color: var(--dark);
-      background: #ffffff;
+      background: #fff;
+      border: 1px solid transparent;
     }
 
-    .button-primary:hover {
-      background: #deecff;
-    }
+    .button-primary:hover { background: #deecff; }
 
-    .button-outline {
+    .button-secondary {
       color: white;
-      border-color: #7896ae;
       background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
     }
 
-    .button-outline:hover {
-      background: #ffffff14;
+    .button-secondary:hover {
+      background: rgba(255,255,255,0.08);
     }
 
     .hero-card {
       padding: 30px;
-      border: 1px solid #ffffff30;
+      border: 1px solid rgba(255,255,255,0.2);
       border-radius: var(--radius);
-      background: #ffffff0c;
+      background: rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
     }
 
     .avatar {
@@ -245,17 +231,12 @@
     }
 
     .hero-card h2 {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       letter-spacing: normal;
     }
 
-    .hero-card p {
-      color: #d5e3ef;
-    }
-
-    .hero-card p:last-child {
-      margin-bottom: 0;
-    }
+    .hero-card p { color: #d5e3ef; }
+    .hero-card p:last-child { margin-bottom: 0; }
 
     .metrics {
       display: grid;
@@ -266,15 +247,15 @@
 
     .metric {
       padding: 20px;
-      border: 1px solid #ffffff25;
+      border: 1px solid rgba(255,255,255,0.18);
       border-radius: 12px;
-      background: #ffffff08;
+      background: rgba(255,255,255,0.05);
     }
 
     .metric strong {
       display: block;
-      color: #ffffff;
-      font-size: 1.75rem;
+      color: white;
+      font-size: 1.8rem;
       line-height: 1.2;
     }
 
@@ -300,6 +281,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       background: var(--surface);
+      box-shadow: 0 10px 24px rgba(17, 24, 39, 0.02);
     }
 
     .about-grid {
@@ -308,9 +290,7 @@
       gap: 24px;
     }
 
-    .about-grid p:last-child {
-      margin-bottom: 0;
-    }
+    .about-grid p:last-child { margin-bottom: 0; }
 
     .list {
       margin: 0;
@@ -322,23 +302,16 @@
       padding-left: 4px;
     }
 
-    .list li:last-child {
-      margin-bottom: 0;
-    }
+    .list li:last-child { margin-bottom: 0; }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .skill-card {
-      padding: 24px;
-    }
-
-    .skill-card h3 {
-      margin-bottom: 18px;
-    }
+    .skill-card { padding: 24px; }
+    .skill-card h3 { margin-bottom: 18px; }
 
     .tags {
       display: flex;
@@ -366,6 +339,7 @@
 
     .job {
       border-left: 4px solid var(--primary);
+      position: relative;
     }
 
     .job-header {
@@ -399,77 +373,22 @@
       font-weight: 700;
     }
 
-    .badge-progress {
-      background: #fff4da;
-      color: #77520a;
-    }
-
-    .projects-grid,
-    .education-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .project-number {
-      margin-bottom: 18px;
-      color: var(--primary);
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-    }
-
-    .project-card p {
-      color: var(--muted);
-    }
-
-    .project-card .tags {
-      margin-top: 22px;
-    }
-
-    .portfolio-link {
-      margin-top: 24px;
-    }
-
-    .certification {
-      padding-block: 18px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .certification:first-of-type {
-      padding-top: 6px;
-    }
-
-    .certification:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .certification h3 {
-      font-size: 1rem;
-    }
-
-    .certification p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
     .contact {
       margin-top: 64px;
       padding: 40px;
       border-radius: var(--radius);
-      background: var(--dark);
+      background: linear-gradient(135deg, var(--dark), #163c62);
       color: white;
+      box-shadow: var(--shadow);
     }
 
     .contact p {
-      max-width: 650px;
+      max-width: 680px;
       color: #d5e3ef;
     }
 
     .site-footer {
-      padding: 30px 0;
+      padding: 28px 0 40px;
       color: var(--muted);
       font-size: 0.85rem;
       text-align: center;
@@ -481,31 +400,17 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-layout {
-        gap: 30px;
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .metrics {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .hero-layout { gap: 30px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 600px) {
-      html {
-        scroll-padding-top: 20px;
-      }
+      html { scroll-padding-top: 20px; }
 
-      .container {
-        width: calc(100% - 32px);
-      }
+      .container { width: calc(100% - 32px); }
 
-      .site-header {
-        position: static;
-      }
+      .site-header { position: static; }
 
       .navigation {
         flex-direction: column;
@@ -513,60 +418,28 @@
         gap: 6px;
       }
 
-      .nav-links {
-        gap: 4px 16px;
-      }
-
-      .hero {
-        padding: 48px 0;
-      }
-
-      .skills-grid,
-      .projects-grid,
-      .education-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .panel,
-      .hero-card {
-        padding: 22px;
-      }
+      .nav-links { gap: 4px 16px; }
+      .hero { padding: 52px 0; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .panel, .hero-card { padding: 22px; }
 
       .job-header {
         flex-direction: column;
         gap: 12px;
       }
 
-      .content-section {
-        padding-top: 44px;
-      }
-
-      .metric {
-        padding: 16px;
-      }
-
-      .metric strong {
-        font-size: 1.5rem;
-      }
-
-      .contact {
-        margin-top: 44px;
-        padding: 26px;
-      }
+      .content-section { padding-top: 44px; }
+      .metric { padding: 16px; }
+      .metric strong { font-size: 1.55rem; }
+      .contact { margin-top: 44px; padding: 26px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .button {
-        transition: none;
-      }
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
     }
   </style>
 </head>
-
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -578,8 +451,6 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
         <a href="#connect">Connect</a>
       </div>
     </nav>
@@ -594,19 +465,13 @@
             <h1 id="hero-title">Hello, I'm <span>Naveen.</span></h1>
 
             <p class="hero-description">
-              Senior Java Developer and Technical Leader building
-              scalable, secure, cloud-native systems for banking
-              and financial services.
+              Senior Java Developer and Technical Leader building scalable,
+              secure, cloud-native systems for banking and financial services.
             </p>
 
             <div class="hero-actions">
-              <a class="button button-primary" href="#experience">
-                Explore my experience
-              </a>
-              <a class="button button-outline"
-                 href="https://github.com/kknaveen90">
-                View GitHub
-              </a>
+              <a class="button button-primary" href="#experience">Explore my experience</a>
+              <a class="button button-secondary" href="#connect">Let’s connect</a>
             </div>
           </div>
 
@@ -614,8 +479,8 @@
             <div class="avatar" aria-hidden="true">N</div>
             <h2>Engineering reliable systems</h2>
             <p>
-              10+ years of experience across backend development,
-              cloud migration, distributed systems, and technical leadership.
+              10+ years of experience across backend development, cloud migration,
+              distributed systems, and technical leadership.
             </p>
             <p><strong>Based in Leeds, United Kingdom</strong></p>
           </aside>
@@ -643,34 +508,26 @@
     </section>
 
     <div class="container">
-      <section class="content-section" id="about"
-               aria-labelledby="about-title">
+      <section class="content-section" id="about" aria-labelledby="about-title">
         <h2 id="about-title">About me</h2>
         <p class="section-description">
-          Backend engineering, cloud delivery, and leadership
-          grounded in enterprise banking experience.
+          Backend engineering, cloud delivery, and leadership grounded in enterprise banking experience.
         </p>
 
         <div class="about-grid">
           <div class="panel">
             <p>
-              I am a Senior Java Developer and Technical Leader with
-              10+ years of experience designing, delivering, and
-              optimising scalable, secure solutions in the banking
-              and financial services domain.
+              I am a Senior Java Developer and Technical Leader with 10+ years of experience designing,
+              delivering, and optimising scalable, secure solutions in the banking and financial services domain.
             </p>
             <p>
-              My core expertise spans Java 21, Spring Boot,
-              microservices architecture, and AWS. I work with
-              architects and stakeholders on Domain-Driven Design,
-              CQRS, and event-driven systems to improve service
-              boundaries, performance, and production reliability.
+              My core expertise spans Java 21, Spring Boot, microservices architecture, and AWS. I work with
+              architects and stakeholders on Domain-Driven Design, CQRS, and event-driven systems to improve
+              service boundaries, performance, and production reliability.
             </p>
             <p>
-              Alongside development, I strengthen delivery through
-              PACT contract testing, Python E2E automation, CI/CD
-              engineering, and observability. I also mentor engineers
-              and lead architecture and code reviews.
+              Alongside development, I strengthen delivery through PACT contract testing, Python E2E automation,
+              CI/CD engineering, and observability. I also mentor engineers and lead architecture and code reviews.
             </p>
           </div>
 
@@ -688,8 +545,7 @@
         </div>
       </section>
 
-      <section class="content-section" id="skills"
-               aria-labelledby="skills-title">
+      <section class="content-section" id="skills" aria-labelledby="skills-title">
         <h2 id="skills-title">Technical skills</h2>
         <p class="section-description">
           Tools and practices I use across the engineering lifecycle.
@@ -794,12 +650,10 @@
         </div>
       </section>
 
-      <section class="content-section" id="experience"
-               aria-labelledby="experience-title">
+      <section class="content-section" id="experience" aria-labelledby="experience-title">
         <h2 id="experience-title">Professional experience</h2>
         <p class="section-description">
-          Delivering enterprise applications, modernising platforms,
-          and supporting engineering teams.
+          Delivering enterprise applications, modernising platforms, and supporting engineering teams.
         </p>
 
         <div class="experience-list">
@@ -808,55 +662,20 @@
               <div>
                 <p class="job-company">TCS UK · Banking / BFSI</p>
                 <h3>Senior Backend Developer</h3>
-                <p class="job-meta">
-                  Java / Spring Boot / Microservices ·
-                  Nov 2022 – Present · Leeds, UK
-                </p>
+                <p class="job-meta">Java / Spring Boot / Microservices · Nov 2022 – Present · Leeds, UK</p>
               </div>
               <span class="badge">Current role</span>
             </header>
 
             <ul class="list">
-              <li>
-                Led migration from Spring Boot 2.x to Spring Boot 4,
-                improving startup time by approximately 25% and
-                reducing memory usage. Applied DDD and CQRS during
-                architecture reviews.
-              </li>
-              <li>
-                Led OpenShift-to-AWS migration using EC2, EKS, S3,
-                RDS, Lambda, Docker, Kubernetes, and Terraform,
-                reducing infrastructure costs by approximately 20%.
-              </li>
-              <li>
-                Improved API performance through caching, asynchronous
-                processing, JVM tuning, and database optimisation,
-                achieving 35% lower latency and 20% higher throughput.
-              </li>
-              <li>
-                Introduced PACT contract testing across 12+ microservices,
-                reducing integration defects by 30–40%. Supported
-                event-driven processing with RabbitMQ, ActiveMQ, and Kafka.
-              </li>
-              <li>
-                Enhanced Jenkins and GitLab CI/CD pipelines to deliver
-                2× faster deployments and reduce manual intervention by 60%.
-              </li>
-              <li>
-                Secured APIs with OAuth2, JWT, Spring Security, and
-                Apigee governance. Reduced SonarQube-flagged
-                vulnerabilities by 50% through remediation.
-              </li>
-              <li>
-                Built Python E2E automation that increased regression
-                coverage by 40%. Improved observability and proactive
-                monitoring, reducing P1/P2 incidents by 25%.
-              </li>
-              <li>
-                Mentored engineers and led architecture reviews,
-                code reviews, and sprint retrospectives, collaborating
-                with architects on performance and regulatory alignment.
-              </li>
+              <li>Led migration from Spring Boot 2.x to Spring Boot 4, improving startup time by approximately 25% and reducing memory usage.</li>
+              <li>Led OpenShift-to-AWS migration using EC2, EKS, S3, RDS, Lambda, Docker, Kubernetes, and Terraform, reducing infrastructure costs by approximately 20%.</li>
+              <li>Improved API performance through caching, asynchronous processing, JVM tuning, and database optimisation, achieving 35% lower latency and 20% higher throughput.</li>
+              <li>Introduced PACT contract testing across 12+ microservices, reducing integration defects by 30–40%.</li>
+              <li>Enhanced Jenkins and GitLab CI/CD pipelines to deliver 2× faster deployments and reduce manual intervention by 60%.</li>
+              <li>Secured APIs with OAuth2, JWT, Spring Security, and Apigee governance, reducing SonarQube-flagged vulnerabilities by 50%.</li>
+              <li>Built Python E2E automation that increased regression coverage by 40% and improved observability for proactive monitoring.</li>
+              <li>Mentored engineers and led architecture reviews, code reviews, and sprint retrospectives.</li>
             </ul>
           </article>
 
@@ -865,34 +684,16 @@
               <div>
                 <p class="job-company">TCS India · BFSI</p>
                 <h3>Java Developer</h3>
-                <p class="job-meta">
-                  Spring Boot / Microservices / Messaging ·
-                  Dec 2020 – Nov 2022 · India
-                </p>
+                <p class="job-meta">Spring Boot / Microservices / Messaging · Dec 2020 – Nov 2022 · India</p>
               </div>
             </header>
 
             <ul class="list">
-              <li>
-                Developed secure, scalable banking microservices and
-                backend APIs using Java, Spring Boot, and Hibernate/JPA.
-              </li>
-              <li>
-                Integrated RabbitMQ and Apache Kafka for reliable,
-                decoupled asynchronous event processing.
-              </li>
-              <li>
-                Improved code quality through JUnit and Mockito unit
-                and integration tests, CI integration, and peer reviews.
-              </li>
-              <li>
-                Supported production services, investigated performance
-                bottlenecks, and contributed to JVM and database tuning.
-              </li>
-              <li>
-                Delivered banking features using secure coding practices
-                and vulnerability assessment tooling.
-              </li>
+              <li>Developed secure, scalable banking microservices and backend APIs using Java, Spring Boot, and Hibernate/JPA.</li>
+              <li>Integrated RabbitMQ and Apache Kafka for reliable, decoupled asynchronous event processing.</li>
+              <li>Improved code quality through JUnit and Mockito unit and integration tests, CI integration, and peer reviews.</li>
+              <li>Supported production services, investigated performance bottlenecks, and contributed to JVM and database tuning.</li>
+              <li>Delivered banking features using secure coding practices and vulnerability assessment tooling.</li>
             </ul>
           </article>
 
@@ -901,27 +702,14 @@
               <div>
                 <p class="job-company">Infosys Ltd</p>
                 <h3>Technology Analyst</h3>
-                <p class="job-meta">
-                  Java / Enterprise Applications ·
-                  Jul 2016 – Dec 2020 · India
-                </p>
+                <p class="job-meta">Java / Enterprise Applications · Jul 2016 – Dec 2020 · India</p>
               </div>
             </header>
 
             <ul class="list">
-              <li>
-                Designed enterprise Java applications focused on
-                performance, scalability, and object-oriented design.
-              </li>
-              <li>
-                Delivered integrations between Angular frontends
-                and Java backend services.
-              </li>
-              <li>
-                Contributed to architecture discussions, system design,
-                production deployments, debugging, performance
-                optimisation, and incident resolution.
-              </li>
+              <li>Designed enterprise Java applications focused on performance, scalability, and object-oriented design.</li>
+              <li>Delivered integrations between Angular frontends and Java backend services.</li>
+              <li>Contributed to architecture discussions, system design, production deployments, debugging, performance optimisation, and incident resolution.</li>
             </ul>
           </article>
 
@@ -930,170 +718,31 @@
               <div>
                 <p class="job-company">Vupadhi / ASAP Info Systems</p>
                 <h3>Software Engineer</h3>
-                <p class="job-meta">
-                  Java / Backend · Feb 2015 – Jun 2016 · India
-                </p>
+                <p class="job-meta">Java / Backend · Feb 2015 – Jun 2016 · India</p>
               </div>
             </header>
 
             <ul class="list">
-              <li>
-                Developed and maintained Java backend applications,
-                supporting testing, debugging, and deployment pipelines
-                across multiple environments.
-              </li>
+              <li>Developed and maintained Java backend applications, supporting testing, debugging, and deployment pipelines across multiple environments.</li>
             </ul>
           </article>
         </div>
       </section>
 
-      <section class="content-section" id="projects"
-               aria-labelledby="projects-title">
-        <h2 id="projects-title">Technical portfolio</h2>
-        <p class="section-description">
-          Hands-on projects reflecting my backend and cloud experience.
-        </p>
-
-        <div class="projects-grid">
-          <article class="panel project-card">
-            <p class="project-number">PROJECT 01</p>
-            <h3>Microservices Demo Project</h3>
-            <p>
-              Sample cloud-native microservices demonstrating
-              event-driven architecture, REST API design,
-              PACT contract testing, CI/CD integration,
-              and AWS deployment patterns.
-            </p>
-            <ul class="tags" aria-label="Project technologies">
-              <li>Java 21</li>
-              <li>Spring Boot 4</li>
-              <li>Docker</li>
-              <li>Kubernetes</li>
-              <li>Kafka</li>
-              <li>AWS</li>
-            </ul>
-          </article>
-
-          <article class="panel project-card">
-            <p class="project-number">PROJECT 02</p>
-            <h3>Spring Boot API Showcase</h3>
-            <p>
-              A Spring Boot project covering OAuth2/JWT security,
-              REST API best practices, JPA/Hibernate data modelling,
-              and automated testing, aligned with Spring Professional
-              Certification preparation.
-            </p>
-            <ul class="tags" aria-label="Project technologies">
-              <li>Spring Boot 4</li>
-              <li>Spring Security</li>
-              <li>OAuth2 / JWT</li>
-              <li>JPA / Hibernate</li>
-              <li>JUnit 5</li>
-              <li>Mockito</li>
-            </ul>
-          </article>
-        </div>
-
-        <p class="portfolio-link">
-          <a href="https://github.com/kknaveen90">
-            Explore my repositories on GitHub →
-          </a>
-        </p>
-      </section>
-
-      <section class="content-section" id="education"
-               aria-labelledby="education-title">
-        <h2 id="education-title">Education &amp; development</h2>
-        <p class="section-description">
-          Academic foundations and continued professional learning.
-        </p>
-
-        <div class="education-grid">
-          <div class="panel">
-            <h3>Master of Computer Applications</h3>
-            <p class="job-company">Osmania University</p>
-            <p class="job-meta">2010 – 2013</p>
-
-            <hr style="border: 0; border-top: 1px solid var(--border);
-                       margin: 28px 0;">
-
-            <h3>Leadership &amp; delivery</h3>
-            <ul class="tags">
-              <li>Agile / Scrum</li>
-              <li>SAFe</li>
-              <li>Stakeholder management</li>
-              <li>Technical leadership</li>
-              <li>Mentoring</li>
-            </ul>
-          </div>
-
-          <div class="panel">
-            <h3>Certifications &amp; professional development</h3>
-
-            <div class="certification">
-              <h3>AWS Solutions Architect – Associate</h3>
-              <span class="badge badge-progress">In progress</span>
-              <p>
-                Preparing for certification and strengthening
-                cloud architecture and AWS services expertise.
-              </p>
-            </div>
-
-            <div class="certification">
-              <h3>Spring Professional Certification</h3>
-              <span class="badge badge-progress">In progress</span>
-              <p>
-                Deepening expertise in Spring Boot,
-                Spring Security, and the Spring ecosystem.
-              </p>
-            </div>
-
-            <div class="certification">
-              <h3>Udemy courses</h3>
-              <span class="badge">Completed</span>
-              <p>
-                AI development, microservices, Spring Boot,
-                AWS, and Azure.
-              </p>
-            </div>
-
-            <div class="certification">
-              <h3>LinkedIn Skill Assessments</h3>
-              <span class="badge">Completed</span>
-              <p>
-                Proficiency badges in Java, Spring Boot,
-                REST APIs, AWS, and software development.
-              </p>
-            </div>
-
-            <div class="certification">
-              <h3>TCS Internal Cloud Badges</h3>
-              <span class="badge">Completed</span>
-              <p>
-                Cloud fundamentals and enterprise deployments.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact" id="connect"
-               aria-labelledby="connect-title">
-        <h2 id="connect-title">Explore my work</h2>
+      <section class="content-section contact" id="connect" aria-labelledby="connect-title">
+        <h2 id="connect-title">Let’s connect</h2>
         <p>
-          Visit my GitHub profile for repositories and examples
-          of my work with Java, Spring Boot, and microservices.
+          I help teams design resilient backend systems, modernise legacy platforms, and build high-trust engineering practices for complex digital products.
         </p>
-        <a class="button button-primary"
-           href="https://github.com/kknaveen90">
-          github.com/kknaveen90 →
-        </a>
+        <p>
+          Open to senior backend, platform engineering, and technical leadership opportunities in the UK and remote-first environments.
+        </p>
       </section>
     </div>
   </main>
 
-  <footer class="container site-footer">
-    <p>Naveen · Senior Java Developer &amp; Technical Leader</p>
+  <footer class="site-footer">
+    © 2025 Naveen. Built for thoughtful engineering.
   </footer>
 </body>
 </html>
